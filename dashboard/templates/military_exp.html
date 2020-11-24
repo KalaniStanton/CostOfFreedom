@@ -35,13 +35,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/hfScore">HF Score</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/militaryExp">Military Expenditure</a>
           </li>
           <li class="nav-item">
@@ -59,27 +59,31 @@
   <div class="container">
 
     <div class="row">
-
-      <div class="col-lg-3" id="selectBoxes">
-
-        <h1 class="my-4">Settings</h1>
-        <div class="col-xs-3" id="firstSelection">
-	            <label> Pick the first variable</label>
-	            <select class="form-control" id ='first_cat_only'>
-                <option value=""></option>
-	            </select>
-        </div>
-        <br /><br />
-        	
-
-      </div>
       <!-- /.col-lg-3 -->
 
-      <div class="col-lg-9">
-        <div class="spinner-border" role="status" id="loading" style="margin:auto; margin-top:100px; margin-left:45%; width:150px; height:150px; display:none;">
-                    <span class="sr-only">Loading...</span>
-        </div>
+      <div class="col-lg-12">
         <div class="chart" id="bargraph">
+                <div class="spinner-border" role="status" id="loading" style="display:block; margin:auto; margin-top:100px; width:150px; height:150px;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+        </div>
+        <script>
+          $( document ).ready(function() {
+            $.ajax({
+                url: "/data/militaryExp",
+                type: "POST",
+                contentType: 'application/json;charset=UTF-8',
+                dataType:"json",
+                success: function (data) {
+                    $("#loading").hide();
+                    Plotly.newPlot('bargraph', data );
+                }
+            });
+          });
+        </script>
+        <p>
+          The interactive visualization above shows military expenditure as a proportion of each country’s GDP from 2008 to 2017. This value was calculated using two data sets collected from the World Bank Data repository containing the <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD">GDP</a> and the <a href="https://data.worldbank.org/indicator/MS.MIL.XPND.CD">military expenditure</a> of each country by year (stored in current USD units). The proportional approach to presenting this data allows us to see the emphasis each country places on defense spending, relative to the overall wealth of the country itself; this metric was selected because of its relevance to the other datasets included in this project.
+        </p>
         </div>
         <!-- /.row -->
 

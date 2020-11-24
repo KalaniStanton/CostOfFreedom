@@ -35,7 +35,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
@@ -44,12 +44,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/militaryExp">Military Expenditure</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/conflict">Conflicts</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/data-exploration">Data Explanatory Tool</a>
-          </li>
+          </li>          
         </ul>
       </div>
     </div>
@@ -59,27 +59,21 @@
   <div class="container">
 
     <div class="row">
-
-      <div class="col-lg-3" id="selectBoxes">
-
-        <h1 class="my-4">Settings</h1>
-        <div class="col-xs-3" id="firstSelection">
-	            <label> Pick the first variable</label>
-	            <select class="form-control" id ='first_cat_only'>
-                <option value=""></option>
-	            </select>
-        </div>
-        <br /><br />
-        	
-
-      </div>
       <!-- /.col-lg-3 -->
 
-      <div class="col-lg-9">
-        <div class="spinner-border" role="status" id="loading" style="margin:auto; margin-top:100px; margin-left:45%; width:150px; height:150px; display:none;">
-                    <span class="sr-only">Loading...</span>
-        </div>
-        <div class="chart" id="bargraph">
+      <div class="col-lg-12">
+        <center>
+          <img src="{{ url_for('static', filename='images/1.png') }}" />
+          <img src="{{ url_for('static', filename='images/2.png') }}" />
+          <img src="{{ url_for('static', filename='images/3.png') }}" />
+          <img src="{{ url_for('static', filename='images/4.png') }}" />
+        </center>
+        <p>
+          The static visualizations above show the number of conflicts and operations, respectively, for each country. These data were collected by the <a href="https://ucdp.uu.se/downloads/index.html#armedconflict">Uppsala Conflict Data Program</a>, which records and maps acts of violence committed in the name of a government, regime, or organized militia. It is important to note that the data only includes conflicts that have occurred after 1946 and thus do not include the major conflicts associated with world war one and world war two.
+
+
+
+        </p>
         </div>
         <!-- /.row -->
 

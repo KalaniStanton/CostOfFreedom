@@ -1,0 +1,10 @@
+To run:
+
+$ cd CostOfFreedom
+$ export FLASK_APP=index.py
+$ python3 -m flask run --port=5000  (replace 5000 with your port 50xx)
+
+Then open a browser on flask01 and point it to:
+
+127.0.0.1:5000   (replace 5000 with your port 50xx)
+
